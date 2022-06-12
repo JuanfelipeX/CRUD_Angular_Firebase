@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onGoToEdit(item: any): void {
+    this.router.navigate(['edit']);
   }
 
+  onGoToSee(item: any): void {
+    this.router.navigate(["details"]);
+  }
+
+  onGoToDelete(item: any): void {
+    alert("Deleted")
+  }
 }
