@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -7,19 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+  navigationExtras: NavigationExtras = {
+    state: {
+      value: null,
+    },
+  };
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   onGoToEdit(item: any): void {
-    this.router.navigate(['edit']);
+    this.navigationExtras!.state!['value'] = item;
+    this.router.navigate(['edit'], this.navigationExtras);
   }
 
   onGoToSee(item: any): void {
-    this.router.navigate(["details"]);
+    this.navigationExtras!.state!['value'] = item;
+    this.router.navigate(['details'], this.navigationExtras);
   }
 
   onGoToDelete(item: any): void {
-    alert("Deleted")
+    alert('Deleted');
   }
 }
