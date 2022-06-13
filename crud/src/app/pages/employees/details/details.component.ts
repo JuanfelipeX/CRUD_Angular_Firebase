@@ -30,4 +30,8 @@ export class DetailsComponent implements OnInit {
   onGoBackToList(): void {
     this.router.navigate(['list']);
   }
+
+  onGoToDelete(): void {
+   alert("Delete")
+  }
 }
