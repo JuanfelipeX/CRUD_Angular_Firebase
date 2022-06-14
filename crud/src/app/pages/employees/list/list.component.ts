@@ -8,7 +8,6 @@ import { EmployeesService } from '../employees.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-
   employees$ = this.employeesSvc.employees;
 
   navigationExtras: NavigationExtras = {
@@ -31,7 +30,12 @@ export class ListComponent implements OnInit {
     this.router.navigate(['details'], this.navigationExtras);
   }
 
-  onGoToDelete(item: any): void {
-    alert('Deleted');
+  async onGoToDelete(empId: any): Promise<void> {
+    try {
+      await this.employeesSvc.onDeleteEmployees(empId);
+      alert('Deleted Successful');
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

@@ -45,6 +45,15 @@ export class EmployeeFormComponent implements OnInit {
     this.router.navigate(['list']);
   }
 
+  isValidField(field: string): string {
+    const validatedField = this.employeeForm.get(field);
+    return !validatedField!.valid && validatedField!.touched
+      ? 'is-invalid'
+      : validatedField!.touched
+      ? 'is-valid'
+      : '';
+  }
+
   private initForm(): void {
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required]],
