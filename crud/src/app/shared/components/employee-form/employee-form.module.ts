@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeFormComponent } from './employee-form.component';
 
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [EmployeeFormComponent],
+  imports: [CommonModule, ReactiveFormsModule],
+  exports: [EmployeeFormComponent],
 })
-export class EmployeeFormModule { }
+export class EmployeeFormModule {}
