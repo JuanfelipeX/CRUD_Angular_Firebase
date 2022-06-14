@@ -11,8 +11,7 @@ import { EmployeeFormModule } from './shared/components/employee-form/employee-f
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    EmployeeFormComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
