@@ -8,6 +8,7 @@ import { EmployeesService } from 'src/app/pages/employees/employees.service';
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.scss'],
 })
+  
 export class EmployeeFormComponent implements OnInit {
   employee: any = null;
   employeeForm!: FormGroup;
