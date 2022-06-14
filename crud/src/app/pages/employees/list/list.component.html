@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="table-light" *ngFor="let item of fakeData">
+            <tr class="table-light" *ngFor="let item of employees$ | async">
                 <th scope="row">{{ item.name}} {{item.lastName}}</th>
                 <td>{{item.email}}</td>
                 <td>{{item.startDate}}</td>
