@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Employee } from 'src/app/shared/models/employee.interface';
+import { EmployeesService } from '../employees.service';
 
 @Component({
   selector: 'app-details',
@@ -8,7 +9,6 @@ import { Employee } from 'src/app/shared/models/employee.interface';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-
   employee: Employee = null!;
 
   navigationExtras: NavigationExtras = {
@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
     },
   };
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private employeesSvc: EmployeesService) {
     const navigation = this.router.getCurrentNavigation();
     this.employee = navigation?.extras?.state?.['value'];
   }
@@ -37,7 +37,13 @@ export class DetailsComponent implements OnInit {
     this.router.navigate(['list']);
   }
 
-  onGoToDelete(): void {
-   alert("Delete")
+  async onGoToDelete(): Promise<void> {
+    try {
+      await this.employeesSvc.onDeleteEmployees(this.employee?.id!);
+      alert('Deleted Successful');
+      this.onGoBackToList();
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
