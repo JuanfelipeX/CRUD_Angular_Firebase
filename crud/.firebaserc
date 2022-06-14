@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crud-angular-employee-firebase": {
+      "hosting": {
+        "crud": [
+          "crud-angular-employee-firebase"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crud-angular-employee-firebase"
+  }
+}
