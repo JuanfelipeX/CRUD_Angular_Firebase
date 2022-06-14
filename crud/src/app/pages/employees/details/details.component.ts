@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.employee = navigation?.extras?.state;
+    this.employee = navigation?.extras?.state?.['value'];
   }
 
   ngOnInit(): void {}
