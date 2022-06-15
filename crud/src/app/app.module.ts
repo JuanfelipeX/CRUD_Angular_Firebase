@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -28,6 +29,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    BrowserAnimationsModule,
+    
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent],
