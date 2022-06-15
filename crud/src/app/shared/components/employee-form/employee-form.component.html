@@ -19,8 +19,27 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm">
+                <div class="form-group  m-1">
+                    <label for="inputAge">Age</label>
+                    <input type="number" class="form-control" id="inputAge" placeholder="Age" formControlName="age" [class]="isValidField('age')">
+                    <div class="invalid-feedback">
+                        <span *ngIf="employeeForm.get('age').errors?.['required']">This field is required.</span>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="row">
+            <div class="col-sm">
+                <div class="form-group  m-1">
+                    <label for="inputJob">Job</label>
+                    <input type="text" class="form-control" id="inputJob" placeholder="Job" formControlName="job" [class]="isValidField('job')">
+                    <div class="invalid-feedback">
+                        <span *ngIf="employeeForm.get('job').errors?.['required']">This field is required.</span>
+                    </div>
+                </div>
+            </div>
             <div class="col-sm">
                 <div class="form-group  m-1">
                     <label for="inputEmail">Email</label>
@@ -41,8 +60,19 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group m-1">
+                    <label for="inputCV">CV</label>
+                    <input type="file" class="form-control" id="inputCV" placeholder="CV" formControlName="cv" [class]="isValidField('cv')">
+                    <div class="invalid-feedback">
+                        <span *ngIf="employeeForm.get('cv').errors?.['required']">This field is required.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit " class="btn btn-primary ">Submit</button>
     </div>
 </form>
 
-<button type="Button" class="btn btn-outline-primary mt-2 btn-sm" (click)="onGoBackToList()">Back To The List</button>
+<button type="Button " class="btn btn-outline-primary mt-2 btn-sm " (click)="onGoBackToList() ">Back To The List</button>
