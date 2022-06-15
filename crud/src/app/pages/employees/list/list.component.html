@@ -2,18 +2,24 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">Name</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Job</th>
                 <th scope="col">Email</th>
+                <th scope="col">CV</th>
                 <th scope="col">Start Date</th>
-                <th class="d-none d-sm-block" scope="col">Actions</th>
+                <th class=" d-sm-block" scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr class="table-light" *ngFor="let item of employees$ | async">
                 <th scope="row">{{ item.name}} {{item.lastName}}</th>
+                <td>{{item.age}}</td>
+                <td>{{item.job}}</td>
                 <td>{{item.email}}</td>
+                <td>{{item.cv}}</td>
                 <td>{{item.startDate}}</td>
-                <td class="btn-group d-none d-sm-block" role="group">
+                <td class="btn-group d-sm-block" role="group">
                     <button type="button" class="btn btn-primary m-1" (click)="onGoToEdit(item)">Edit</button>
                     <button type="button" class="btn btn-secondary m-1" (click)="onGoToSee(item)">See</button>
                     <button type="button" class="btn btn-success m-1" (click)="onGoToDelete(item.id)">Delete</button>
